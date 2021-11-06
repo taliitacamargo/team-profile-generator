@@ -68,7 +68,7 @@ inquirer.prompt(newMember).then((response) => {
   </html>
   `;
   
-    fs.writeFile("portfolio.html", content, (err) => {
+    fs.writeFile("employee.html", content, (err) => {
       if (err) {
         console.error(err);
         return;
