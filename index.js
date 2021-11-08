@@ -6,6 +6,12 @@ const Interin = require('./lib/Interin');
 
 const employees = [];
 
+class Manager extends employee {
+
+}
+
+
+
 const newMember = [{
     type: "input",
     name: "name",
@@ -70,6 +76,7 @@ inquirer.prompt(newMember).then((response) => {
   </body>
   </html>
   `;
+
   
     fs.writeFile("employee.html", content, (err) => {
       if (err) {
