@@ -6,9 +6,9 @@ const Interin = require('./lib/Interin');
 
 const employees = [];
 
-class Manager extends employee {
+// class Manager extends employee {
 
-}
+// }
 
 
 
