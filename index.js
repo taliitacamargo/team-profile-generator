@@ -1,16 +1,12 @@
 const inquirer = require('inquirer');
+
 const fs = require('fs'); 
+
 const Manager = require('./lib/Manager');
 const Engineer = require ('./lib/Engineer');
 const Interin = require('./lib/Interin');
 
 const employees = [];
-
-// class Manager extends employee {
-
-// }
-
-
 
 const newMember = [{
     type: "input",
@@ -40,6 +36,21 @@ const newMember = [{
 },
 
 ];
+
+function writeToFile(fileName, data) {
+    fs.writeFile(path.join(process.cwd(),fileName), data, function(err) {
+        if (err) 
+          console.error(err);
+        })
+};
+
+
+
+function init() {
+    inquirer.prompt(newMember).then((response) => {
+        writeToFile("team.html");
+
+})
 
 inquirer.prompt(newMember).then((response) => {
     const content = `
@@ -76,13 +87,9 @@ inquirer.prompt(newMember).then((response) => {
   </body>
   </html>
   `;
+})
 
-  
-    fs.writeFile("employee.html", content, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
-  });
+}
+
+
   

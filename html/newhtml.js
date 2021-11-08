@@ -1,3 +1,11 @@
+    function Manager (name, id, email) {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+    }
+
+    
+
 const addManager = ` 
   <section class= "container">
       <h1>${response.name}</h1>
