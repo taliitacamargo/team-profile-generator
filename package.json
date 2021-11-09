@@ -1,6 +1,30 @@
 {
+  
+  "name": "team-profile-generator",
+  "description": "# 10 Object-Oriented Programming: Team Profile Generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taliitacamargo/team-profile-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taliitacamargo/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/taliitacamargo/team-profile-generator#readme",
   "dependencies": {
     "inquirer": "^8.2.0",
     "jest": "^27.3.1"
   }
 }
+
