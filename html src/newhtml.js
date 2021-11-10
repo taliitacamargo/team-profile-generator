@@ -4,9 +4,9 @@
     //     this.email = email;
     // }
 
-    
+  
 
-const addManager = ` 
+const addManager = function(manager) { ` 
   <section class= "container">
       <h1>${response.name}</h1>
       <article>
@@ -25,6 +25,7 @@ const addManager = `
       </nav>
       </section>
   `;
+}
 
   
     // fs.writeFile("employee.html", content, (err) => {
@@ -34,7 +35,8 @@ const addManager = `
     //   }
     // });
 
-    const addIntern = `
+    
+    const addIntern =  function (engineer) {`
     <section class= "container">
     <h1>${response.name}</h1>
     <article>
@@ -53,6 +55,7 @@ const addManager = `
     </nav>
     </section>
     `;
+}
 
     // fs.writeFile("employee.html", content, (err) => {
     //     if (err) {
@@ -62,7 +65,7 @@ const addManager = `
     //   });
 
 
-    const addEngineer = `
+    const addEngineer = function (intern) {`
     <section class= "container">
     <h1>${response.name}</h1>
     <article>
@@ -81,8 +84,10 @@ const addManager = `
     </nav>
     </section>
     `;
+}
 
-    fs.writeFile("employee.html", content, (err) => {
+    
+fs.writeToFile("employee.html", content, (err) => {
         if (err) {
           console.error(err);
           return;

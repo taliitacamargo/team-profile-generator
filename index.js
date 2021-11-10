@@ -1,6 +1,9 @@
+// const Html = require('./html src/newhtml');
 const inquirer = require('inquirer');
 
+
 const fs = require('fs'); 
+
 
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
@@ -170,7 +173,7 @@ inquirer.prompt(newMember).then((response) => {
       <p> ${response.email}</p>
       </li>
       <li>
-      <p> ${response.phone}</p>
+      <p> ${response.office}</p>
       </li>
       </ol>
       </nav>
