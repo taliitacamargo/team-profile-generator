@@ -27,12 +27,12 @@ const addManager = `
   `;
 
   
-    fs.writeFile("employee.html", content, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
+    // fs.writeFile("employee.html", content, (err) => {
+    //   if (err) {
+    //     console.error(err);
+    //     return;
+    //   }
+    // });
 
     const addIntern = `
     <section class= "container">
@@ -54,12 +54,12 @@ const addManager = `
     </section>
     `;
 
-    fs.writeFile("employee.html", content, (err) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-      });
+    // fs.writeFile("employee.html", content, (err) => {
+    //     if (err) {
+    //       console.error(err);
+    //       return;
+    //     }
+    //   });
 
 
     const addEngineer = `

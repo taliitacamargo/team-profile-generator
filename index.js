@@ -2,11 +2,82 @@ const inquirer = require('inquirer');
 
 const fs = require('fs'); 
 
+const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require ('./lib/Engineer');
-const Interin = require('./lib/Interin');
+const Interin = require('./lib/Intern');
 
 const employees = [];
+
+function createManager() {
+inquirer.prompt([
+    {
+    type: "input",
+    name: "managerName",
+    messsage: "What is the member's name?"
+    },
+    {
+    type: "input",
+    name: "managerId",
+    message: "What is the member's employee ID?" 
+    },
+    {
+        type: "input",
+        name: "managerEmail",
+        message: "What is the member's email address?"  
+    },
+    {
+        type: "input",
+        name: "managerOffice",
+        message: "What is the member's office number?"  
+    },
+])
+.then((response) => {
+    const manager = new Manager(
+        response.managerName, 
+        response.managerId,
+        response.managerEmail, 
+        response.managerOffice
+    )
+    employees.push(manager);
+})
+
+
+}
+
+function addToTeam() {
+    inquirer.prompt([{
+        type: "list",
+        name: "role",
+        message: "What is the member's role?",  
+        choices: ["Engineer", "Intern"]
+
+    }])
+    .then((chosenRole) => {
+        switch (chosenRole.role) {
+            case 'Engineer': 
+                addEngineer()
+                break;
+
+                case 'Intern': 
+                addIntern()
+                break;
+        
+            default:
+                break;
+        }
+    })
+}
+
+function addEngineer() {
+// similar to manager function 
+}
+
+function addIntern() {
+// 
+}
+
+
 
 const newMember = [{
     type: "input",
@@ -25,14 +96,14 @@ const newMember = [{
 },
 {
     type: "input",
-    name: "phone",
-    message: "What is the member's phone number?"  
+    name: "office",
+    message: "What is the member's office number?"  
 },
 {
     type: "list",
     name: "role",
     message: "What is the member's role?",  
-    choices: ["Manager", "Engineer", "Interin"]
+    choices: ["Manager", "Engineer", "Intern"]
 }
 ];
 
