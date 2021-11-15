@@ -1,16 +1,21 @@
-// const Html = require('./html src/newhtml');
+const Html = require('./src/newhtml');
 const inquirer = require('inquirer');
+const Employee = require('./lib/Employee');
+const Manager = require('./lib/Manager');
+const Engineer = require ('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
+
+const template = require('./src/newhtml')
 
 const fs = require('fs'); 
 
 
-const Employee = require('./lib/Employee');
-const Manager = require('./lib/Manager');
-const Engineer = require ('./lib/Engineer');
-const Interin = require('./lib/Intern');
+
 
 const employees = [];
+
+function Init() {
 
 function createManager() {
 inquirer.prompt([
@@ -42,10 +47,10 @@ inquirer.prompt([
         response.managerEmail, 
         response.managerOffice
     )
-    employees.push(manager);
-})
-
-
+    employees.push(manager);   
+     addToTeam();
+    })
+ 
 }
 
 function addToTeam() {
@@ -53,7 +58,7 @@ function addToTeam() {
         type: "list",
         name: "role",
         message: "What is the member's role?",  
-        choices: ["Engineer", "Intern"]
+        choices: ["Engineer", "Intern", "renderTeam"]
 
     }])
     .then((chosenRole) => {
@@ -67,13 +72,14 @@ function addToTeam() {
                 break;
         
             default:
+                renderHtml();
                 break;
         }
     })
 }
 
 function addEngineer() {
-    nquirer.prompt([
+    inquirer.prompt([
         {
         type: "input",
         name: "engineerName",
@@ -103,89 +109,117 @@ function addEngineer() {
             response.engineerGitHub
         )
         employees.push(engineer);
+        addToTeam();
     })
-
-// similar to manager function 
 }
 
 function addIntern() {
-// 
+    inquirer.prompt([
+        {
+        type: "input",
+        name: "internName",
+        messsage: "What is the member's name?"
+        },
+        {
+        type: "input",
+        name: "internId",
+        message: "What is the member's employee ID?" 
+        },
+        {
+            type: "input",
+            name: "internEmail",
+            message: "What is the member's email address?"  
+        },
+        {
+            type: "input",
+            name: "internSchool",
+            message: "What is the member's school name?"  
+        },
+    ])
+    .then((response) => {
+        const intern = new Intern(
+            response.internName, 
+            response.internId,
+            response.internEmail, 
+            response.internSchool
+        )
+        employees.push(intern);
+        addToTeam(); 
+        console.log(employees);
+    })
 }
 
-
-
-const newMember = [{
-    type: "input",
-    name: "name",
-    messsage: "What is the member's name?"
-},
-{
-    type: "input",
-    name: "id",
-    message: "What is the member's employee ID?"  
-},
-{
-    type: "input",
-    name: "email",
-    message: "What is the member's email address?"  
-},
-{
-    type: "input",
-    name: "office",
-    message: "What is the member's office number?"  
-},
-{
-    type: "list",
-    name: "role",
-    message: "What is the member's role?",  
-    choices: ["Manager", "Engineer", "Intern"]
+function renderHtml(){
+    fs.writeFileSync('./output/team.html',template(employees),'utf-8')
 }
-];
+
+createManager();
+}
+Init();
 
 
-    // inquirer.prompt(newMember).then((response) => {
-    //     writeToFile("team.html");
+// const newMember = [{
+//     type: "input",
+//     name: "name",
+//     messsage: "What is the member's name?"
+// },
+// {
+//     type: "input",
+//     name: "id",
+//     message: "What is the member's employee ID?"  
+// },
+// {
+//     type: "input",
+//     name: "email",
+//     message: "What is the member's email address?"  
+// },
+// {
+//     type: "input",
+//     name: "office",
+//     message: "What is the member's office number?"  
+// },
+// {
+//     type: "list",
+//     name: "role",
+//     message: "What is the member's role?",  
+//     choices: ["Manager", "Engineer", "Intern"]
+// }
+// ];
 
-inquirer.prompt(newMember).then((response) => {
-    const content = `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-      <title>Team Profile Generator</title>
-  </head>
+// inquirer.prompt(newMember).then((response) => {
+//     const content = `
+//   <!DOCTYPE html>
+//   <html lang="en">
+//   <head>
+//       <meta charset="UTF-8">
+//       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+//       <title>Team Profile Generator</title>
+//   </head>
 
-  <body>
-  <header> 
-  <h1 class= "text-center text-light bg-dark"> My Team </h1>
-  <section class= "container">
-      <h1>${response.name}</h1>
-      <article>
-      <nav>
-      <ol>
-      <li>
-      <p> ${response.id}</p>
-      </li>
-      <li>
-      <p> ${response.email}</p>
-      </li>
-      <li>
-      <p> ${response.office}</p>
-      </li>
-      </ol>
-      </nav>
-      </section>
-  </body>
-  </html>
-  `
+//   <body>
+//   <header> 
+//   <h1 class= "text-center text-light bg-dark"> My Team </h1>
+//   <section class= "container">
+//       <h1>${response.name}</h1>
+//       <article>
+//       <nav>
+//       <ol>
+//       <li>
+//       <p> ${response.id}</p>
+//       </li>
+//       <li>
+//       <p> ${response.email}</p>
+//       </li>
+//       <li>
+//       <p> ${response.office}</p>
+//       </li>
+//       </ol>
+//       </nav>
+//       </section>
+//   </body>
+//   </html>
+//   `
 
-fs.writeFile("employee.html", content, (err) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    });
-});
+
