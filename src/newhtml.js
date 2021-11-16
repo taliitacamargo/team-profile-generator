@@ -5,18 +5,18 @@ function createTeamCards(employeeCards) {
   const addManager = function (manager) {
     return ` 
   <section class= "container">
-      <h1>${manager.managerName}</h1>
+      <h1>${manager.name}</h1>
       <article>
       <nav>
       <ol>
       <li>
-      <p> ${manager.managerId}</p>
+      <p> ${manager.id}</p>
       </li>
       <li>
-      <p> ${manager.managerEmail}</p>
+      <p> ${manager.email}</p>
       </li>
       <li>
-      <p> ${manager.managerOffice}</p>
+      <p> ${manager.office}</p>
       </li>
       </ol>
       </nav>
@@ -27,18 +27,18 @@ function createTeamCards(employeeCards) {
   const addEngineer = function (engineer) {
     return `
     <section class= "container">
-    <h1>${engineer.engineerName}</h1>
+    <h1>${engineer.name}</h1>
     <article>
     <nav>
     <ol>
     <li>
-    <p> ${engineer.engineerId}</p>
+    <p> ${engineer.id}</p>
     </li>
     <li>
-    <p> ${engineer.engineerEmail}</p>
+    <p> ${engineer.email}</p>
     </li>
     <li>
-    <p> ${engineer.engineerGitHub}</p>
+    <p> ${engineer.github}</p>
     </li>
     </ol>
     </nav>
@@ -49,18 +49,18 @@ function createTeamCards(employeeCards) {
   const addIntern = function (intern) {
     return `
     <section class= "container">
-    <h1>${intern.internName}</h1>
+    <h1>${intern.name}</h1>
     <article>
     <nav>
     <ol>
     <li>
-    <p> ${intern.internId}</p>
+    <p> ${intern.id}</p>
     </li>
     <li>
-    <p> ${intern.internEmail}</p>
+    <p> ${intern.email}</p>
     </li>
     <li>
-    <p> ${intern.internSchool}</p>
+    <p> ${intern.school}</p>
     </li>
     </ol>
     </nav>
@@ -87,7 +87,7 @@ function createTeamCards(employeeCards) {
 return cards.join('')
 }
 module.exports = employeeCards => {
-  `' <!DOCTYPE html>
+  return `<!DOCTYPE html>
   <html lang="en">
   <head>
       <meta charset="UTF-8">

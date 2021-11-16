@@ -1,4 +1,4 @@
-const Html = require('./src/newhtml');
+// const Html = require('./src/newhtml');
 const inquirer = require('inquirer');
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
@@ -9,9 +9,6 @@ const Intern = require('./lib/Intern');
 const template = require('./src/newhtml')
 
 const fs = require('fs'); 
-
-
-
 
 const employees = [];
 
@@ -36,7 +33,7 @@ inquirer.prompt([
     },
     {
         type: "input",
-        name: "managerOffice",
+        name: "office",
         message: "What is the member's office number?"  
     },
 ])
@@ -45,7 +42,7 @@ inquirer.prompt([
         response.managerName, 
         response.managerId,
         response.managerEmail, 
-        response.managerOffice
+        response.office
     )
     employees.push(manager);   
      addToTeam();
@@ -72,6 +69,7 @@ function addToTeam() {
                 break;
         
             default:
+                // this is where it breaks
                 renderHtml();
                 break;
         }
@@ -97,7 +95,7 @@ function addEngineer() {
         },
         {
             type: "input",
-            name: "engineerGitHub",
+            name: "github",
             message: "What is the member's GitHub?"  
         },
     ])
@@ -106,7 +104,7 @@ function addEngineer() {
             response.engineerName, 
             response.engineerId,
             response.engineerEmail, 
-            response.engineerGitHub
+            response.github
         )
         employees.push(engineer);
         addToTeam();
@@ -132,7 +130,7 @@ function addIntern() {
         },
         {
             type: "input",
-            name: "internSchool",
+            name: "school",
             message: "What is the member's school name?"  
         },
     ])
@@ -141,7 +139,7 @@ function addIntern() {
             response.internName, 
             response.internId,
             response.internEmail, 
-            response.internSchool
+            response.school
         )
         employees.push(intern);
         addToTeam(); 
@@ -149,10 +147,16 @@ function addIntern() {
     })
 }
 
+// function renderHtml(){
+//     // this is also where it breaks
+//     fs.writeFileSync('./output/team.html',template(employees),'utf-8')
+// }
 function renderHtml(){
-    fs.writeFileSync('./output/team.html',template(employees),'utf-8')
+    console.log('rendering')
+    console.log(template)
+    console.log(template(employees))
+    fs.writeFile('./output/team.html',template(employees),'utf-8')
 }
-
 createManager();
 }
 Init();
