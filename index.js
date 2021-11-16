@@ -143,7 +143,7 @@ function addIntern() {
         )
         employees.push(intern);
         addToTeam(); 
-        console.log(employees);
+        // console.log(employees);
     })
 }
 
@@ -152,10 +152,10 @@ function addIntern() {
 //     fs.writeFileSync('./output/team.html',template(employees),'utf-8')
 // }
 function renderHtml(){
-    console.log('rendering')
-    console.log(template)
-    console.log(template(employees))
-    fs.writeFile('./output/team.html',template(employees),'utf-8')
+    // console.log('rendering')
+    // console.log(template)
+    // console.log(template(employees))
+    fs.writeFileSync('./output/team.html',template(employees),'utf-8')
 }
 createManager();
 }
