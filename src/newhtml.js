@@ -5,8 +5,10 @@ function createTeamCards(employeeCards) {
   const addManager = function (manager) {
     return ` 
   <section class= "container">
-      <h1>${manager.name}</h1>
+      <h1>manager<h1>
+      
       <article>
+      <h2>${manager.name}</h2>
       <nav>
       <ol>
       <li>
@@ -27,8 +29,9 @@ function createTeamCards(employeeCards) {
   const addEngineer = function (engineer) {
     return `
     <section class= "container">
-    <h1>${engineer.name}</h1>
+    <h1>engineer<h1>
     <article>
+    <h2>${engineer.name}</h2>
     <nav>
     <ol>
     <li>
@@ -49,8 +52,9 @@ function createTeamCards(employeeCards) {
   const addIntern = function (intern) {
     return `
     <section class= "container">
-    <h1>${intern.name}</h1>
+    <h1>intern<h1>
     <article>
+    <h2>${intern.name}</h2>
     <nav>
     <ol>
     <li>
@@ -102,7 +106,7 @@ module.exports = employeeCards => {
   <h1 class= "text-center text-light bg-dark"> My Team </h1>
   <section class= "container">
       ${createTeamCards(employeeCards)}
-      </section>
+  </section>
   </body>
   </html>
   `;
