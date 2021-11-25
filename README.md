@@ -5,6 +5,9 @@
 
 ![team](https://user-images.githubusercontent.com/88398240/143333417-f313cbc4-e848-4fb2-bf28-29c84d7ab072.jpg)
 
+
+# Walkthrough Video : https://drive.google.com/file/d/19l6OSqWB9LRQdRTKopz04CguVquJqFdT/view?usp=sharing
+
 > **Note**: There is no starter code for this assignment.
 
 ## User Story
