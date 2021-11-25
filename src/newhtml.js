@@ -4,71 +4,47 @@ function createTeamCards(employeeCards) {
 
   const addManager = function (manager) {
     return ` 
-  <section class= "container">
-      <h1>manager<h1>
-      
-      <article>
-      <h2>${manager.name}</h2>
-      <nav>
-      <ol>
-      <li>
-      <p> ${manager.id}</p>
-      </li>
-      <li>
+
+    <div class="card-deck text-white d-flex justify-content-center  text-center" style="max-width: 50rem;">
+  <div class="card  bg-dark m-3 border-warning">
+    <div class="card-body ">
+      <h4 class="card-title">Manager</h4>
+      <h6 class="card-text">${manager.name}</h6>
+      <p>${manager.id}</p>
       <p> ${manager.email}</p>
-      </li>
-      <li>
       <p> ${manager.office}</p>
-      </li>
-      </ol>
-      </nav>
-      </section>
+    </div>
+  </div>
+\
   `;
   }
 
   const addEngineer = function (engineer) {
     return `
-    <section class= "container">
-    <h1>engineer<h1>
-    <article>
-    <h2>${engineer.name}</h2>
-    <nav>
-    <ol>
-    <li>
-    <p> ${engineer.id}</p>
-    </li>
-    <li>
-    <p> ${engineer.email}</p>
-    </li>
-    <li>
-    <p> ${engineer.github}</p>
-    </li>
-    </ol>
-    </nav>
-    </section>
+  <div class="card  bg-dark m-3 border-warning">
+    <div class="card-body">
+      <h4 class="card-title">Engineer</h4>
+      <h6 class="card-text">${engineer.name}</h6>
+      <p>${engineer.id}</p>
+      <p> ${engineer.email}</p>
+      <p> ${engineer.github}</p>
+    </div>
+  </div>
     `;
   }
 
   const addIntern = function (intern) {
     return `
-    <section class= "container">
-    <h1>intern<h1>
-    <article>
-    <h2>${intern.name}</h2>
-    <nav>
-    <ol>
-    <li>
-    <p> ${intern.id}</p>
-    </li>
-    <li>
-    <p> ${intern.email}</p>
-    </li>
-    <li>
-    <p> ${intern.school}</p>
-    </li>
-    </ol>
-    </nav>
-    </section>
+    <div class="card  bg-dark  m-3 border-warning">
+      <div class="card-body">
+        <h4 class="card-title">Intern</h4>
+        <h6 class="card-text">${intern.name}</h6>
+        <p>${intern.id}</p>
+        <p> ${intern.email}</p>
+        <p> ${intern.school}</p>
+      </div>
+    </div>
+    </div>
     `;
   }
 
