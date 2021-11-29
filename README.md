@@ -9,7 +9,6 @@
 # Walkthrough Video :     
 https://drive.google.com/file/d/19l6OSqWB9LRQdRTKopz04CguVquJqFdT/view?usp=sharing
  
-> **Note**: There is no starter code for this assignment.
 
 ## User Story
 
